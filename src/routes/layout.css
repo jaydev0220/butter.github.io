@@ -1,53 +1,67 @@
 @import 'tailwindcss';
 
 @theme {
-	--color-bg-page: #faf8f2; /* cream-50 — body background */
-	--color-bg-surface: #f5f1e8; /* cream-100 — cards, panels */
-	--color-bg-hover: #ede8dc; /* cream-200 — hover state fill */
-	--color-border: #e2dbcc; /* cream-300 — default border */
-	--color-border-strong: #cec6b4; /* cream-400 — emphasis border */
+	/* Background colors */
+	--color-bg-page: #faf8f2;
+	--color-bg-surface: #f5f1e8;
+	--color-bg-hover: #ede8dc;
 
-	--color-gold-tint: #fef7e6; /* badge backgrounds */
-	--color-gold-light: #faecc4; /* subtle fills */
-	--color-gold-mid: #f5d68a; /* decorative fills */
-	--color-gold-idle: #e0b020; /* secondary accent */
-	--color-gold: #c9980f; /* PRIMARY CTA, links, accents */
-	--color-gold-hover: #a07812; /* button hover */
-	--color-gold-text: #6b500a; /* text on gold-tint bg */
-	--color-gold-deep: #3d2e04; /* maximum depth */
+	/* Border colors */
+	--color-border: #e2dbcc;
+	--color-border-strong: #cec6b4;
 
-	--color-indigo-tint: #eeedf8; /* badge backgrounds */
-	--color-indigo-light: #c8c5ee; /* borders, outlines */
-	--color-indigo-mid: #9e99e0; /* decorative fills */
-	--color-indigo-accent: #4a43b8; /* secondary */
-	--color-indigo: #2e288f; /* PRIMARY data color, chart line */
-	--color-indigo-deep: #1a1660; /* section headings */
-	--color-indigo-darkest: #0d0b3a; /* maximum depth */
+	/* Gold palette */
+	--color-gold-tint: #fef7e6;
+	--color-gold-light: #faecc4;
+	--color-gold-mid: #f5d68a;
+	--color-gold-idle: #e0b020;
+	--color-gold: #c9980f;
+	--color-gold-hover: #a07812;
+	--color-gold-text: #6b500a;
+	--color-gold-deep: #3d2e04;
 
-	--color-rose-tint: #faecf0; /* badge backgrounds */
-	--color-rose-light: #f2c4d0; /* subtle fills */
-	--color-rose-mid: #e494a8; /* decorative fills */
-	--color-rose-accent: #c2536a; /* accent */
-	--color-rose: #8f3347; /* PRIMARY rose text / icons */
-	--color-rose-deep: #5c1f2d; /* headings */
+	/* Indigo palette */
+	--color-indigo-tint: #eeedf8;
+	--color-indigo-light: #c8c5ee;
+	--color-indigo-mid: #9e99e0;
+	--color-indigo-accent: #4a43b8;
+	--color-indigo: #2e288f;
+	--color-indigo-deep: #1a1660;
+	--color-indigo-darkest: #0d0b3a;
 
+	/* Rose palette */
+	--color-rose-tint: #faecf0;
+	--color-rose-light: #f2c4d0;
+	--color-rose-mid: #e494a8;
+	--color-rose-accent: #c2536a;
+	--color-rose: #8f3347;
+	--color-rose-deep: #5c1f2d;
+
+	/* Market indicators */
 	--color-gain-tint: #e0f5ef;
 	--color-gain-mid: #6dd4b6;
-	--color-gain: #0a9e82; /* chart lines, icons */
-	--color-gain-text: #07735f; /* text on white */
+	--color-gain: #0a9e82;
+	--color-gain-text: #07735f;
 
 	--color-loss-tint: #faeaea;
 	--color-loss-mid: #f0a0a0;
-	--color-loss: #d44040; /* chart lines, icons */
-	--color-loss-text: #a02828; /* text on white */
+	--color-loss: #d44040;
+	--color-loss-text: #a02828;
 
-	--color-text-primary: #1c1a14; /* body, headings */
-	--color-text-secondary: #4a4640; /* supporting text */
-	--color-text-muted: #8c8578; /* captions, placeholders */
-	--color-text-hint: #c8c2b4; /* disabled, hints */
-	--color-divider: #e2dbcc; /* hr, separators */
+	/* Text colors */
+	--color-text-primary: #1c1a14;
+	--color-text-secondary: #4a4640;
+	--color-text-muted: #8c8578;
+	--color-text-hint: #c8c2b4;
+	--color-divider: #e2dbcc;
 
+	/* Typography */
 	--font-display: 'Noto Serif TC', Georgia, serif;
 	--font-sans: 'Noto Sans TC', system-ui, sans-serif;
 	--font-mono: 'JetBrains Mono', monospace;
+
+	/* Custom spacing */
+	--spacing-18: 4.5rem;
+	--spacing-22: 5.5rem;
+	--spacing-30: 7.5rem;
 }
