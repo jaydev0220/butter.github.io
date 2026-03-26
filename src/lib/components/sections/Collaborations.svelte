@@ -23,6 +23,8 @@
 						src={partner.logoUrl}
 						alt="{partner.name} logo"
 						class="mb-4 h-16 w-auto transition-all duration-300"
+						width="256"
+						height="64"
 					/>
 					<h3 class="mb-1 text-lg font-bold text-text-primary">{partner.name}</h3>
 					<p class="text-sm text-text-muted">{partner.description}</p>

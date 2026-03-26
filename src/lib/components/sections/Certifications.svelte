@@ -20,7 +20,13 @@
 					class="flex flex-col items-center justify-center rounded-2xl border border-border
 						bg-bg-surface p-8 transition-colors hover:border-indigo"
 				>
-					<img src={cert.iconUrl} alt="{cert.badge} badge" class="mb-4 h-20 w-auto" />
+					<img
+						src={cert.iconUrl}
+						alt="{cert.badge} badge"
+						class="mb-4 h-20 w-auto"
+						width="200"
+						height="80"
+					/>
 					<p class="mb-1 text-2xl font-bold text-indigo-deep">{cert.fullName}</p>
 				</div>
 			{/each}
@@ -35,5 +41,3 @@
 		</div>
 	</div>
 </section>
-
-
