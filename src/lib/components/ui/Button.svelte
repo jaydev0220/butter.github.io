@@ -22,7 +22,7 @@
 	const baseClasses =
 		'inline-flex items-center justify-center px-5 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
 	const variantClasses = {
-		primary: 'bg-gold text-gold-tint hover:bg-gold-hover active:scale-[0.98] focus:ring-gold',
+		primary: 'bg-gold text-black hover:bg-gold-hover active:scale-[0.98] focus:ring-gold',
 		secondary:
 			'bg-transparent text-indigo border-[1.5px] border-indigo-light hover:bg-indigo-tint focus:ring-indigo'
 	};
