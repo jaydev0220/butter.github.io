@@ -1,5 +1,5 @@
 <script lang="ts">
-	const spotifyArtistId = '22BENrsOtaAg9MuLfc7egJ';
+	import { spotifyArtistId } from '$lib/data/music';
 </script>
 
 <section id="music" class="bg-rose-deep py-20 text-white md:py-28">
