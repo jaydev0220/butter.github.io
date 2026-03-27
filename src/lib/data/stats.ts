@@ -12,8 +12,8 @@ export const stats: Stat[] = [
 		label: '開始金融教育'
 	},
 	{
-		metric: '市場預判',
-		value: '~20%',
-		label: '協助客戶避免潛在虧損'
+		metric: '資產管理',
+		value: '800萬+ USDT',
+		label: '協助客戶管理資金總額'
 	}
 ];
