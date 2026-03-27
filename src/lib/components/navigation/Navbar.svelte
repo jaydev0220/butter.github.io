@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { Menu, X } from 'lucide-svelte';
 	import { navItems } from '$lib/data/navigation';
 	import Button from '$lib/components/ui/Button.svelte';
 	import { scrollToSection } from '$lib/utils/scroll';
@@ -72,23 +73,11 @@
 			aria-label={isMobileMenuOpen ? '關閉選單' : '開啟選單'}
 			aria-expanded={isMobileMenuOpen}
 		>
-			<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				{#if isMobileMenuOpen}
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M6 18L18 6M6 6l12 12"
-					/>
-				{:else}
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M4 6h16M4 12h16M4 18h16"
-					/>
-				{/if}
-			</svg>
+			{#if isMobileMenuOpen}
+				<X class="h-6 w-6" />
+			{:else}
+				<Menu class="h-6 w-6" />
+			{/if}
 		</button>
 	</div>
 

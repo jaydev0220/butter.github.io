@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
+	import { ChevronDown } from 'lucide-svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import Badge from '$lib/components/ui/Badge.svelte';
 
@@ -85,14 +86,7 @@
 
 		<!-- Scroll Indicator (Mobile) -->
 		<div class="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 animate-bounce" aria-hidden="true">
-			<svg
-				class="h-5 w-5 text-indigo-darkest/50"
-				fill="none"
-				stroke="currentColor"
-				viewBox="0 0 24 24"
-			>
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-			</svg>
+			<ChevronDown class="h-5 w-5 text-indigo-darkest/50" />
 		</div>
 	</div>
 
@@ -159,14 +153,7 @@
 
 		<!-- Scroll Indicator (Tablet/Desktop) -->
 		<div class="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 animate-bounce" aria-hidden="true">
-			<svg
-				class="h-6 w-6 text-indigo-darkest/50"
-				fill="none"
-				stroke="currentColor"
-				viewBox="0 0 24 24"
-			>
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-			</svg>
+			<ChevronDown class="h-6 w-6 text-indigo-darkest/50" />
 		</div>
 	</div>
 </section>
