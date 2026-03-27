@@ -8,6 +8,7 @@
 	let currentRoleIndex = $state(0);
 	const roles = ['金融交易講師', '教育創作者', '創作歌手'];
 	let hasAnimated = $state(false);
+	let innerHeight = $state(0);
 
 	onMount(() => {
 		hasAnimated = true;
@@ -19,6 +20,8 @@
 		return () => clearInterval(interval);
 	});
 </script>
+
+<svelte:window bind:innerHeight />
 
 <section id="hero" class="relative min-h-screen overflow-hidden bg-portrait-bg">
 	<!-- Mobile: Vertical stacked layout -->
@@ -32,6 +35,8 @@
 				class="mx-auto w-full max-w-xs object-contain"
 				loading="eager"
 				fetchpriority="high"
+				width="320"
+				height="480"
 			/>
 			<!-- Bottom fade into content area -->
 			<div
@@ -101,6 +106,8 @@
 				class="portrait-image h-full w-auto object-contain"
 				loading="eager"
 				fetchpriority="high"
+				width={innerHeight * 0.667}
+				height={innerHeight}
 			/>
 		</div>
 
