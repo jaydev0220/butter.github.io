@@ -41,8 +41,7 @@
 		<!-- Logo / Brand -->
 		<a
 			href="#hero"
-			class="font-display text-xl font-bold select-none
-						{isScrolled ? 'text-text-primary' : 'text-white'}"
+			class="font-display text-xl font-bold text-text-primary select-none"
 			onclick={(e) => handleNavClick('#hero', e)}
 		>
 			Butter 巴特
@@ -54,8 +53,7 @@
 				<a
 					href={item.href}
 					onclick={(e) => handleNavClick(item.href, e)}
-					class="transition-colors duration-200
-						{isScrolled ? 'text-text-secondary hover:text-gold' : 'text-white/80 hover:text-white'}"
+					class="text-text-secondary transition-colors duration-200 hover:text-gold"
 				>
 					{item.label}
 				</a>
@@ -114,8 +112,6 @@
 		</div>
 	{/if}
 </nav>
-
-<!-- eslint-enable svelte/no-navigation-without-resolve -->
 
 <style>
 	@keyframes slide-down {

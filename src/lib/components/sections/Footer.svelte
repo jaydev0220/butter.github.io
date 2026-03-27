@@ -28,7 +28,7 @@
 		<Button
 			variant="primary"
 			href="https://www.youtube.com/@Dump.Money.Earns.More."
-			class="bg-gold hover:bg-gold-hover"
+			class="bg-gold hover:bg-gold"
 		>
 			開始學習
 		</Button>
