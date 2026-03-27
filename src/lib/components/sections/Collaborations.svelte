@@ -13,7 +13,7 @@
 		</div>
 
 		<!-- Partner Logos Grid -->
-		<div class="mx-auto grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2">
+		<div class="mx-auto grid max-w-6xl grid-cols-1 gap-8 sm:grid-cols-3">
 			{#each partners as partner (partner.name)}
 				<div
 					class="group flex flex-col items-center rounded-xl border border-border bg-bg-page p-8 text-center

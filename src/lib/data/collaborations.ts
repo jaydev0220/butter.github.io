@@ -10,5 +10,10 @@ export const partners: Partner[] = [
 		name: '群益證券',
 		description: '台灣知名證券公司',
 		logoUrl: '/images/partners/capital-securities.svg'
+	},
+	{
+		name: '笨錢社群',
+		description: '台灣反詐騙教育、投資觀念推廣社群',
+		logoUrl: '/images/partners/dumb-money.webp'
 	}
 ];
