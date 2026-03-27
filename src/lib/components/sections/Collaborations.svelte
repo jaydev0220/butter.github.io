@@ -23,6 +23,7 @@
 						src={partner.logoUrl}
 						alt="{partner.name} logo"
 						class="mb-4 h-16 w-auto transition-all duration-300"
+						loading="lazy"
 						width="256"
 						height="64"
 					/>
