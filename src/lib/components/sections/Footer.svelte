@@ -2,8 +2,20 @@
 	import { socialLinks } from '$lib/data/navigation';
 	import Button from '$lib/components/ui/Button.svelte';
 	import SocialIcon from '$lib/components/ui/SocialIcon.svelte';
+	import ImageModal from '$lib/components/ui/ImageModal.svelte';
+	import { contacts } from '$lib/data/contacts';
 
 	const currentYear = new Date().getFullYear();
+
+	let selectedImage = $state<{ url: string; alt: string } | null>(null);
+
+	function openImage(imageUrl: string, label: string): void {
+		selectedImage = { url: imageUrl, alt: `${label} QRCode` };
+	}
+
+	function closeImage(): void {
+		selectedImage = null;
+	}
 </script>
 
 <!-- CTA Section -->
@@ -26,7 +38,7 @@
 <!-- Footer -->
 <footer id="footer" class="bg-indigo-darkest py-12 text-white">
 	<div class="mx-auto max-w-6xl px-6">
-		<div class="mb-12 grid grid-cols-1 gap-12 md:grid-cols-2">
+		<div class="mb-12 grid grid-cols-1 gap-12 md:grid-cols-3">
 			<!-- Brand -->
 			<div>
 				<h3 class="mb-4 font-display text-xl font-bold">Butter 巴特</h3>
@@ -54,6 +66,33 @@
 				</div>
 				<!-- eslint-enable svelte/no-navigation-without-resolve -->
 			</div>
+
+			<!-- Contact -->
+			<div>
+				<h4 class="mb-4 font-bold">
+					聯繫方式
+					<span class="text-sm font-normal text-text-muted">（點擊放大）</span>
+				</h4>
+				<div class="flex gap-4">
+					{#each contacts as contact (contact.label)}
+						<button
+							type="button"
+							class="cursor-pointer transition-transform hover:scale-110 focus:scale-110
+								focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+							onclick={() => openImage(contact.imageUrl, contact.label)}
+							aria-label="放大 {contact.label} QRCode"
+						>
+							<img
+								src={contact.iconUrl}
+								alt="{contact.label} QRCode"
+								class="h-12 w-12 rounded"
+								width="48"
+								height="48"
+							/>
+						</button>
+					{/each}
+				</div>
+			</div>
 		</div>
 
 		<!-- Copyright -->
@@ -70,3 +109,11 @@
 		</div>
 	</div>
 </footer>
+
+<!-- Image Modal -->
+<ImageModal
+	isOpen={selectedImage !== null}
+	imageUrl={selectedImage?.url ?? ''}
+	imageAlt={selectedImage?.alt ?? ''}
+	onClose={closeImage}
+/>
