@@ -93,12 +93,12 @@
 	<!-- Tablet/Desktop: Asymmetric layout with portrait on right -->
 	<div class="hidden min-h-screen items-center md:flex">
 		<!-- Portrait Background (Tablet/Desktop) -->
-		<div class="portrait-container">
+		<div class="absolute top-1/2 right-[-5%] z-0 h-full max-h-screen -translate-y-1/2 lg:right-0">
 			<img
 				src="/images/butter.webp"
 				alt=""
 				aria-hidden="true"
-				class="portrait-image"
+				class="portrait-image h-full w-auto object-contain"
 				loading="eager"
 				fetchpriority="high"
 			/>
@@ -159,58 +159,13 @@
 </section>
 
 <style>
-	@keyframes fade-in {
-		from {
-			opacity: 0;
-			transform: translateY(20px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	.animate-fade-in {
-		animation: fade-in 0.8s ease-out;
-	}
-	.animate-fade-in-delay-1 {
-		animation: fade-in 0.8s ease-out 0.2s both;
-	}
-	.animate-fade-in-delay-2 {
-		animation: fade-in 0.8s ease-out 0.4s both;
-	}
-	.animate-fade-in-delay-3 {
-		animation: fade-in 0.8s ease-out 0.6s both;
-	}
-	.animate-fade-in-delay-4 {
-		animation: fade-in 0.8s ease-out 0.8s both;
-	}
-
-	/* Tablet/Desktop: Portrait on right, fading leftward */
-	.portrait-container {
-		position: absolute;
-		right: -5%;
-		top: 50%;
-		transform: translateY(-50%);
-		height: 100%;
-		max-height: 100vh;
-		z-index: 0;
-	}
-
+	/* Mask gradient for portrait - Tailwind doesn't have mask utilities */
 	.portrait-image {
-		height: 100%;
-		width: auto;
-		object-fit: contain;
 		mask-image: linear-gradient(to left, black 40%, transparent 95%);
 		-webkit-mask-image: linear-gradient(to left, black 40%, transparent 95%);
 	}
 
-	/* Large Desktop: More visible portrait */
 	@media (min-width: 1024px) {
-		.portrait-container {
-			right: 0;
-		}
-
 		.portrait-image {
 			mask-image: linear-gradient(to left, black 50%, transparent 90%);
 			-webkit-mask-image: linear-gradient(to left, black 50%, transparent 90%);

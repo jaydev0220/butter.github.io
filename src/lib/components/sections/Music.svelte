@@ -32,7 +32,7 @@
 			<div class="relative h-38 w-38">
 				<!-- Vinyl Record -->
 				<div
-					class="animate-spin-slow absolute inset-0 rounded-full bg-linear-to-br from-neutral-900 to-neutral-800"
+					class="absolute inset-0 animate-spin-slow rounded-full bg-linear-to-br from-neutral-900 to-neutral-800"
 				>
 					<!-- Grooves -->
 					<div class="absolute inset-2 rounded-full border border-neutral-700"></div>
@@ -48,18 +48,3 @@
 		</div>
 	</div>
 </section>
-
-<style>
-	@keyframes spin-slow {
-		from {
-			transform: rotate(0deg);
-		}
-		to {
-			transform: rotate(360deg);
-		}
-	}
-
-	.animate-spin-slow {
-		animation: spin-slow 8s linear infinite;
-	}
-</style>
