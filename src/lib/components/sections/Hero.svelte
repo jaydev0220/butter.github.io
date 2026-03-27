@@ -27,7 +27,7 @@
 	<div class="absolute inset-0 z-0 bg-black/30"></div>
 
 	<!-- Content -->
-	<div class="relative z-10 mx-auto max-w-4xl px-6 text-center text-white">
+	<div class="relative z-10 mx-auto max-w-4xl px-6 text-center text-white select-none">
 		<!-- Pre-title Badge -->
 		<div class="mb-6" class:animate-fade-in={hasAnimated}>
 			<Badge variant="gold">金融教育 × 創作音樂</Badge>
