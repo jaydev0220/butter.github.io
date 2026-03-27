@@ -26,9 +26,9 @@ project-root/
 ├── src/
 │   ├── app.html             # HTML template wrapper
 │   ├── lib/                 # Shared library code
-│   │   ├── components/      # Reusable Svelte components (if exists)
+│   │   ├── components/      # Reusable Svelte components
 │   │   ├── types/           # Shared TypeScript type definitions
-│   │   └── utils/           # Utility functions (if exists)
+│   │   └── utils/           # Utility functions
 │   └── routes/              # SvelteKit file-based routing
 │       ├── +layout.svelte   # Root layout component
 │       ├── +page.svelte     # Homepage
