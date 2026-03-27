@@ -41,7 +41,8 @@
 		<!-- Logo / Brand -->
 		<a
 			href="#hero"
-			class="font-display text-xl font-bold {isScrolled ? 'text-text-primary' : 'text-white'}"
+			class="font-display text-xl font-bold select-none
+						{isScrolled ? 'text-text-primary' : 'text-white'}"
 			onclick={(e) => handleNavClick('#hero', e)}
 		>
 			Butter 巴特
