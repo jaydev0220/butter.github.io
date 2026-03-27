@@ -16,7 +16,6 @@
 	--color-gold-mid: #f5d68a;
 	--color-gold-idle: #e0b020;
 	--color-gold: #c9980f;
-	--color-gold-hover: #a07812;
 	--color-gold-text: #6b500a;
 	--color-gold-deep: #3d2e04;
 
@@ -54,6 +53,9 @@
 	--color-text-muted: #8c8578;
 	--color-text-hint: #c8c2b4;
 	--color-divider: #e2dbcc;
+
+	/* Portrait background */
+	--color-portrait-bg: #bec3cd;
 
 	/* Typography */
 	--font-display: 'Noto Serif TC', Georgia, serif;
