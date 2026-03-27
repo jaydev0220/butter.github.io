@@ -26,7 +26,7 @@
 		<!-- Portrait Header (Mobile) -->
 		<div class="relative shrink-0 pt-16">
 			<img
-				src="/images/butter.webp"
+				src="/images/butter-sm.webp"
 				alt=""
 				aria-hidden="true"
 				class="mx-auto w-full max-w-xs object-contain"
