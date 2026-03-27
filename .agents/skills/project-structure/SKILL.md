@@ -10,6 +10,7 @@ This skill provides agents with comprehensive knowledge of the project's directo
 ## When to Use This Skill
 
 Consult this skill when:
+
 - Creating new files, components, routes, or types
 - Exploring the codebase to find existing functionality
 - Understanding where specific types of code belong
@@ -69,29 +70,34 @@ src/routes/api/users/+server.ts      → /api/users (API endpoint)
 ### Components
 
 **Reusable components** (used across multiple routes):
+
 - Location: `src/lib/components/`
 - Naming: PascalCase (e.g., `Button.svelte`, `Card.svelte`)
 - Import: `import Button from '$lib/components/Button.svelte'`
 
 **Route-specific components** (used only within one route):
+
 - Location: Same directory as the route
 - Naming: PascalCase with descriptive prefix (e.g., `ProfileHeader.svelte`)
 
 ### Types
 
 **Shared types** (used across multiple files):
+
 - Location: `src/lib/types/`
 - Naming: Descriptive names in PascalCase or camelCase
 - Example: `src/lib/types/user.ts`, `src/lib/types/api.ts`
 - Import: `import type { User } from '$lib/types/user'`
 
 **Route-specific types**:
+
 - Location: Same directory as the route or in route's `+page.ts`/`+page.server.ts`
 - Use when types are only relevant to that specific route
 
 ### Utilities
 
 **Utility functions**:
+
 - Location: `src/lib/utils/` or `src/lib/` (if no utils subdirectory)
 - Naming: camelCase function names in kebab-case files
 - Example: `src/lib/utils/format-date.ts`
@@ -100,6 +106,7 @@ src/routes/api/users/+server.ts      → /api/users (API endpoint)
 ### Stores
 
 **Svelte stores** (reactive state management):
+
 - Location: `src/lib/stores/`
 - Naming: camelCase store names in kebab-case files
 - Example: `src/lib/stores/user-store.ts`
@@ -108,21 +115,25 @@ src/routes/api/users/+server.ts      → /api/users (API endpoint)
 ### Styles
 
 **Global styles**:
+
 - Location: `src/routes/layout.css`
 - Contains: Tailwind theme configuration, CSS custom properties
 - Applied via: `+layout.svelte` import
 
 **Component-scoped styles**:
+
 - Use `<style>` blocks within `.svelte` components
 - Prefer Tailwind utility classes over custom CSS
 
 **Shared style utilities**:
+
 - Define CSS custom properties in `layout.css`
 - Access via `theme()` in Tailwind classes
 
 ### Static Assets
 
 **Public files** (images, fonts, robots.txt, etc.):
+
 - Location: `static/`
 - Accessible at: Root path (e.g., `static/logo.png` → `/logo.png`)
 - Use for: Favicon, robots.txt, manifest.json, images, fonts
@@ -130,6 +141,7 @@ src/routes/api/users/+server.ts      → /api/users (API endpoint)
 ## Project Aliases
 
 SvelteKit provides the `$lib` alias:
+
 - `$lib` → `src/lib/`
 - Example: `import Button from '$lib/components/Button.svelte'`
 
@@ -146,6 +158,7 @@ SvelteKit provides the `$lib` alias:
 ### New Component
 
 **Reusable component:**
+
 ```typescript
 // src/lib/components/Button.svelte
 <script lang="ts">
@@ -153,7 +166,7 @@ SvelteKit provides the `$lib` alias:
     variant?: 'primary' | 'secondary';
     onclick?: () => void;
   }
-  
+
   let { variant = 'primary', onclick }: Props = $props();
 </script>
 
@@ -163,9 +176,10 @@ SvelteKit provides the `$lib` alias:
 ```
 
 **Usage:**
+
 ```svelte
 <script>
-  import Button from '$lib/components/Button.svelte';
+	import Button from '$lib/components/Button.svelte';
 </script>
 
 <Button variant="primary">Click me</Button>
@@ -176,9 +190,9 @@ SvelteKit provides the `$lib` alias:
 ```typescript
 // src/lib/types/user.ts
 export interface User {
-  id: string;
-  name: string;
-  email: string;
+	id: string;
+	name: string;
+	email: string;
 }
 
 export type UserRole = 'admin' | 'user' | 'guest';
@@ -189,11 +203,11 @@ export type UserRole = 'admin' | 'user' | 'guest';
 ```typescript
 // src/lib/utils/format-date.ts
 export function formatDate(date: Date): string {
-  return date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
+	return date.toLocaleDateString('en-US', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric'
+	});
 }
 ```
 
@@ -220,14 +234,14 @@ When asked to create or find files:
 
 ## Quick Reference
 
-| What | Where | Import |
-|------|-------|--------|
+| What             | Where                            | Import                                           |
+| ---------------- | -------------------------------- | ------------------------------------------------ |
 | Shared component | `src/lib/components/Name.svelte` | `import Name from '$lib/components/Name.svelte'` |
-| Route page | `src/routes/path/+page.svelte` | N/A (file-based routing) |
-| Shared type | `src/lib/types/name.ts` | `import type { Type } from '$lib/types/name'` |
-| Utility | `src/lib/utils/name.ts` | `import { fn } from '$lib/utils/name'` |
-| Static asset | `static/file.ext` | `/file.ext` (absolute URL) |
-| Global CSS | `src/routes/layout.css` | Import in `+layout.svelte` |
+| Route page       | `src/routes/path/+page.svelte`   | N/A (file-based routing)                         |
+| Shared type      | `src/lib/types/name.ts`          | `import type { Type } from '$lib/types/name'`    |
+| Utility          | `src/lib/utils/name.ts`          | `import { fn } from '$lib/utils/name'`           |
+| Static asset     | `static/file.ext`                | `/file.ext` (absolute URL)                       |
+| Global CSS       | `src/routes/layout.css`          | Import in `+layout.svelte`                       |
 
 ## Examples
 
@@ -236,6 +250,7 @@ When asked to create or find files:
 **Task:** Add a user profile page with a reusable avatar component
 
 **Structure:**
+
 ```
 src/
 ├── lib/
@@ -251,6 +266,7 @@ src/
 ```
 
 **Why:**
+
 - `Avatar.svelte` is reusable → goes in `$lib/components/`
 - `User` type is shared → goes in `$lib/types/`
 - `ProfileBio.svelte` is page-specific → stays in route directory

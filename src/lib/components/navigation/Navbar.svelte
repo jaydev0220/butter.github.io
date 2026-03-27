@@ -61,10 +61,7 @@
 				</a>
 			{/each}
 
-			<Button
-				variant="primary"
-				href="https://www.youtube.com/@Dump.Money.Earns.More."
-			>
+			<Button variant="primary" href="https://www.youtube.com/@Dump.Money.Earns.More.">
 				開始學習
 			</Button>
 		</div>
@@ -110,10 +107,7 @@
 				</a>
 			{/each}
 			<div class="mt-4">
-				<Button
-					variant="primary"
-					href="https://www.youtube.com/@Dump.Money.Earns.More."
-				>
+				<Button variant="primary" href="https://www.youtube.com/@Dump.Money.Earns.More.">
 					開始學習
 				</Button>
 			</div>
