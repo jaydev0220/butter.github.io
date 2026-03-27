@@ -41,7 +41,7 @@
 								? 'md:justify-end'
 								: ''}"
 						>
-							<span class="inline-block h-2 w-2 rounded-full bg-gain"></span>
+							<span class="bg-gain inline-block h-2 w-2 rounded-full"></span>
 							{event.outcome}
 						</p>
 					</div>
