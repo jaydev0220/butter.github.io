@@ -10,7 +10,6 @@ export interface Partner {
 	name: string;
 	description: string;
 	logoUrl: string;
-	type: 'crypto' | 'securities';
 }
 
 /** Trading certification badge */
