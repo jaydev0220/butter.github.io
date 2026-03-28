@@ -5,7 +5,7 @@
 </script>
 
 <section id="impact-stats" class="bg-bg-page py-20 md:py-28">
-	<div class="mx-auto max-w-6xl px-6">
+	<div class="mx-auto max-w-7xl px-6">
 		<!-- Section Header -->
 		<div class="mb-16 text-center">
 			<h2 class="mb-4 font-display text-3xl font-bold text-text-primary md:text-4xl">教學成果</h2>
