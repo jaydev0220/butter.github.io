@@ -3,6 +3,7 @@ export interface Stat {
 	metric: string;
 	value: string;
 	label: string;
+	localeString: boolean;
 }
 
 /** Partner/collaborator information */

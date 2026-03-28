@@ -25,7 +25,12 @@
 	let element: HTMLDivElement | undefined = $state();
 	let hasAnimated = $state(false);
 
-	const displayNumber = $derived(animatedNumber ?? parsed().finalNumber);
+	const displayNumber = $derived(() => {
+		const num = animatedNumber ?? parsed().finalNumber;
+		if (!stat.localeString) return num;
+		const parsed_num = parseInt(num.replace(/,/g, ''), 10);
+		return isNaN(parsed_num) ? num : parsed_num.toLocaleString();
+	});
 
 	onMount(() => {
 		if (!element) return;
@@ -60,7 +65,8 @@
 <div bind:this={element} class="text-center">
 	<p class="mb-1 text-sm text-text-secondary">{stat.metric}</p>
 	<p class="font-sans text-4xl font-medium tracking-tight text-indigo-deep md:text-5xl">
-		{parsed().prefix}<span class="inline-block tabular-nums">{displayNumber}</span>{parsed().suffix}
+		{parsed().prefix}<span class="inline-block tabular-nums">{displayNumber()}</span>{parsed()
+			.suffix}
 	</p>
 	<p class="mt-1 text-sm text-text-muted">{stat.label}</p>
 </div>
