@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { Menu, X } from 'lucide-svelte';
+	import { Menu, X } from '@lucide/svelte';
 	import { navItems } from '$lib/data/navigation';
 	import Button from '$lib/components/ui/Button.svelte';
 	import { scrollToSection } from '$lib/utils/scroll';
