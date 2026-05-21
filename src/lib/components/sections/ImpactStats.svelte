@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { ChevronLeft, ChevronRight } from '@lucide/svelte';
+	import { onMount } from 'svelte';
 	import { stats } from '$lib/data/stats';
 	import StatCard from '$lib/components/ui/StatCard.svelte';
 	import { staggerDelay } from '$lib/utils/animation';
@@ -11,45 +12,24 @@
 
 	let { courseImages = [] }: Props = $props();
 	let activeSlideIndex = $state(0);
-	let sliderTrack: HTMLDivElement | undefined = $state();
 
 	const hasMultipleSlides = $derived(courseImages.length > 1);
-
-	function getScrollBehavior(): ScrollBehavior {
-		return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
-	}
 
 	function goToSlide(index: number): void {
 		if (courseImages.length === 0) return;
 
-		const nextIndex = (index + courseImages.length) % courseImages.length;
-		activeSlideIndex = nextIndex;
-		sliderTrack?.children
-			.item(nextIndex)
-			?.scrollIntoView({ behavior: getScrollBehavior(), block: 'nearest', inline: 'center' });
+		activeSlideIndex = (index + courseImages.length) % courseImages.length;
 	}
 
-	function updateActiveSlide(): void {
-		if (!sliderTrack) return;
+	onMount(() => {
+		if (!hasMultipleSlides || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-		const trackRect = sliderTrack.getBoundingClientRect();
-		const trackCenter = trackRect.left + trackRect.width / 2;
-		let closestIndex = activeSlideIndex;
-		let closestDistance = Number.POSITIVE_INFINITY;
+		const autoplayTimer = window.setInterval(() => {
+			goToSlide(activeSlideIndex + 1);
+		}, 5000);
 
-		Array.from(sliderTrack.children).forEach((slide, index) => {
-			const slideRect = slide.getBoundingClientRect();
-			const slideCenter = slideRect.left + slideRect.width / 2;
-			const distance = Math.abs(trackCenter - slideCenter);
-
-			if (distance < closestDistance) {
-				closestDistance = distance;
-				closestIndex = index;
-			}
-		});
-
-		activeSlideIndex = closestIndex;
-	}
+		return () => window.clearInterval(autoplayTimer);
+	});
 </script>
 
 <section id="impact-stats" class="bg-bg-page py-20 md:py-28">
@@ -71,62 +51,52 @@
 		</div>
 
 		{#if courseImages.length > 0}
-			<div class="mt-16">
-				<div class="mb-6 flex items-end justify-between gap-4">
-					<div>
-						<p class="mb-2 text-sm font-medium text-indigo">課程現場</p>
-						<h3 class="font-display text-2xl font-bold text-text-primary md:text-3xl">
-							課程與講座剪影
-						</h3>
+			<div class="mx-auto mt-16 max-w-5xl">
+				<div
+					class="relative overflow-hidden rounded-3xl border border-border bg-bg-surface shadow-sm"
+				>
+					<div
+						class="flex transition-transform duration-500 ease-out motion-reduce:transition-none"
+						style:transform={`translateX(-${activeSlideIndex * 100}%)`}
+						aria-label="課程照片輪播"
+					>
+						{#each courseImages as image, index (image.src)}
+							<figure class="min-w-full">
+								<img
+									src={image.src}
+									alt={image.alt}
+									class="aspect-[16/10] w-full object-contain"
+									loading={index === 0 ? 'eager' : 'lazy'}
+									decoding="async"
+								/>
+							</figure>
+						{/each}
 					</div>
 
 					{#if hasMultipleSlides}
-						<div class="flex gap-2">
-							<button
-								type="button"
-								class="flex h-10 w-10 items-center justify-center rounded-full border border-border
-									bg-bg-surface text-indigo-deep transition-all hover:-translate-y-0.5 hover:border-indigo
-									hover:text-indigo focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo"
-								onclick={() => goToSlide(activeSlideIndex - 1)}
-								aria-label="上一張課程照片"
-							>
-								<ChevronLeft class="h-5 w-5" />
-							</button>
-							<button
-								type="button"
-								class="flex h-10 w-10 items-center justify-center rounded-full border border-border
-									bg-bg-surface text-indigo-deep transition-all hover:-translate-y-0.5 hover:border-indigo
-									hover:text-indigo focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo"
-								onclick={() => goToSlide(activeSlideIndex + 1)}
-								aria-label="下一張課程照片"
-							>
-								<ChevronRight class="h-5 w-5" />
-							</button>
-						</div>
-					{/if}
-				</div>
-
-				<div
-					bind:this={sliderTrack}
-					class="flex snap-x snap-mandatory [scrollbar-width:none] gap-4 overflow-x-auto scroll-smooth
-						pb-4 motion-reduce:scroll-auto [&::-webkit-scrollbar]:hidden"
-					onscroll={updateActiveSlide}
-					aria-label="課程照片輪播"
-				>
-					{#each courseImages as image, index (image.src)}
-						<figure
-							class="min-w-full snap-center overflow-hidden rounded-3xl border border-border bg-bg-surface
-								shadow-sm md:min-w-[72%] lg:min-w-[60%]"
+						<button
+							type="button"
+							class="absolute top-1/2 left-3 flex h-10 w-10 -translate-y-1/2 items-center
+								justify-center rounded-full border border-white/70 bg-bg-surface/90 text-indigo-deep
+								shadow-sm transition-all hover:-translate-x-0.5 hover:bg-white hover:text-indigo
+								focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo md:left-4 md:h-12 md:w-12"
+							onclick={() => goToSlide(activeSlideIndex - 1)}
+							aria-label="上一張課程照片"
 						>
-							<img
-								src={image.src}
-								alt={image.alt}
-								class="aspect-[16/10] w-full bg-bg-surface object-contain"
-								loading={index === 0 ? 'eager' : 'lazy'}
-								decoding="async"
-							/>
-						</figure>
-					{/each}
+							<ChevronLeft class="h-5 w-5" />
+						</button>
+						<button
+							type="button"
+							class="absolute top-1/2 right-3 flex h-10 w-10 -translate-y-1/2 items-center
+								justify-center rounded-full border border-white/70 bg-bg-surface/90 text-indigo-deep
+								shadow-sm transition-all hover:translate-x-0.5 hover:bg-white hover:text-indigo
+								focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo md:right-4 md:h-12 md:w-12"
+							onclick={() => goToSlide(activeSlideIndex + 1)}
+							aria-label="下一張課程照片"
+						>
+							<ChevronRight class="h-5 w-5" />
+						</button>
+					{/if}
 				</div>
 
 				{#if hasMultipleSlides}
