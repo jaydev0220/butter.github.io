@@ -45,7 +45,7 @@
 						onclick={() => openCertificationImage(cert.imageUrl, cert.fullName)}
 						aria-label="查看 {cert.fullName} 認證圖片"
 					>
-						查看認證圖片
+						查看證照
 					</button>
 				</div>
 			{/each}
