@@ -18,6 +18,7 @@ export interface Certification {
 	badge: string;
 	fullName: string;
 	iconUrl: string;
+	imageUrl: string;
 }
 
 /** Track record timeline event */

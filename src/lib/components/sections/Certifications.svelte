@@ -1,6 +1,17 @@
 <script lang="ts">
 	import { certifications } from '$lib/data/certifications';
 	import Badge from '$lib/components/ui/Badge.svelte';
+	import ImageModal from '$lib/components/ui/ImageModal.svelte';
+
+	let selectedImage = $state<{ url: string; alt: string } | null>(null);
+
+	function openCertificationImage(imageUrl: string, fullName: string): void {
+		selectedImage = { url: imageUrl, alt: `${fullName} certification` };
+	}
+
+	function closeCertificationImage(): void {
+		selectedImage = null;
+	}
 </script>
 
 <section id="certifications" class="bg-bg-page py-20 md:py-28">
@@ -27,7 +38,14 @@
 						width="200"
 						height="80"
 					/>
-					<p class="mb-1 text-2xl font-bold text-indigo-deep">{cert.fullName}</p>
+					<button
+						type="button"
+						class="mb-1 cursor-pointer text-2xl font-bold text-indigo-deep transition-colors hover:text-indigo focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo focus-visible:ring-offset-4 focus-visible:ring-offset-bg-surface"
+						onclick={() => openCertificationImage(cert.imageUrl, cert.fullName)}
+						aria-label="查看 {cert.fullName} 認證圖片"
+					>
+						{cert.fullName}
+					</button>
 				</div>
 			{/each}
 		</div>
@@ -41,3 +59,10 @@
 		</div>
 	</div>
 </section>
+
+<ImageModal
+	isOpen={selectedImage !== null}
+	imageUrl={selectedImage?.url ?? ''}
+	imageAlt={selectedImage?.alt ?? ''}
+	onClose={closeCertificationImage}
+/>
