@@ -38,13 +38,14 @@
 						width="200"
 						height="80"
 					/>
+					<p class="mb-2 text-2xl font-bold text-indigo-deep">{cert.fullName}</p>
 					<button
 						type="button"
-						class="mb-1 cursor-pointer text-2xl font-bold text-indigo-deep transition-colors hover:text-indigo focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo focus-visible:ring-offset-4 focus-visible:ring-offset-bg-surface"
+						class="cursor-pointer text-sm font-medium text-text-secondary underline decoration-indigo/40 underline-offset-4 transition-colors hover:text-indigo focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo focus-visible:ring-offset-4 focus-visible:ring-offset-bg-surface"
 						onclick={() => openCertificationImage(cert.imageUrl, cert.fullName)}
 						aria-label="查看 {cert.fullName} 認證圖片"
 					>
-						{cert.fullName}
+						查看認證圖片
 					</button>
 				</div>
 			{/each}
