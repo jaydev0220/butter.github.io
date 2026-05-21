@@ -6,6 +6,12 @@ export interface Stat {
 	localeString: boolean;
 }
 
+/** Course gallery image discovered from static assets */
+export interface CourseImage {
+	src: string;
+	alt: string;
+}
+
 /** Partner/collaborator information */
 export interface Partner {
 	name: string;

@@ -11,6 +11,13 @@
 	import Footer from '$lib/components/sections/Footer.svelte';
 	import { socialLinks } from '$lib/data/navigation';
 	import { Head, SchemaOrg, type SeoConfig, type SchemaOrgProps } from 'svead';
+	import type { PageData } from './$types';
+
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
 
 	const title = 'Butter 巴特 — 金融交易講師 · 創作歌手';
 	const url = page.url.toString();
@@ -55,7 +62,7 @@
 
 <main id="main-content">
 	<Hero />
-	<ImpactStats />
+	<ImpactStats courseImages={data.courseImages} />
 	<Collaborations />
 	<Certifications />
 	<TrackRecord />
