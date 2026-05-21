@@ -1,65 +1,83 @@
-# AGENTS.md
+# Agent Instructions
+
+## Project Description
+
+This project is a static personal website built with Svelte. The site presents the brand and professional profile of **Butter 巴特**, a financial lecturer, professional trader, and music creator.
+
+The website content is written in **Traditional Chinese** and should maintain a clear, professional, and personal tone. The design and implementation should support a static-site workflow, with emphasis on fast loading, clean structure, accessible markup, and maintainable Svelte components.
+
+Primary content themes include:
+
+- Financial education and lecture-related information
+- Professional trading experience and market commentary
+- Music creation, personal branding, and creative work
+- Public-facing biographical and contact/promotion content
+
+When modifying the project, preserve the Traditional Chinese language style, avoid unnecessary complexity, and keep the site optimized for static deployment.
 
 ## Tech Stack
 
-- **Runtime:** Node.js 24+
+- **Runtime:** Node.js 24
 - **Framework:** Svelte 5 / SvelteKit
-- **Language:** TypeScript 5.9+
-- **Styling:** Tailwind CSS 4+
-- **Package Manager:** pnpm 10+
+- **Language:** TypeScript 6
+- **Styling:** Tailwind CSS 4
+- **Package Manager:** pnpm 10
 - **Deployment**: Static site (via `@sveltejs/adapter-static`)
 
-## Agent Rules
+## Project Strcture
 
-### No Fabrication
+```text
+project-root/
+|-- src/
+|   |-- app.html             # HTML template wrapper
+|   |-- lib/                 # Shared library code
+|   |   |-- components/      # Reusable Svelte components
+|   |   |-- data/            # Content data
+|   |   |-- types/           # Shared TypeScript type definitions
+|   |   `-- utils/           # Utility functions
+|   `-- routes/              # SvelteKit file-based routing
+|       |-- +layout.svelte   # Root layout component
+|       |-- +page.svelte     # Homepage
+|       `-- layout.css       # Global styles
+|-- static/                  # Static assets (served at /)
+|-- package.json             # Dependencies and scripts
+|-- svelte.config.js         # SvelteKit configuration
+|-- vite.config.ts           # Vite configuration
+|-- tsconfig.json            # TypeScript configuration
+|-- eslint.config.js         # ESLint configuration
+`-- AGENTS.md                # Agent behavior guidelines
+```
 
-- Verify API signatures, props, types by reading source first
-- State explicitly when files/functions don't exist yet
-- Consult `svelte-code-writer` skill for Svelte 5 syntax; don't guess
+## Development Workflow
 
-### Minimal Changes
+### Keep Documentation Current
 
-- Write minimum code to satisfy the requirement
-- Touch only files in scope
-- Comments explain _why_, not _what_
-- One logical change per commit (use `git-commit` skill)
+Whenever adding a new feature or modifying existing behavior, update the relevant documentation in the same change set.
 
-### Objectivity
+Documentation updates may include, but are not limited to:
 
-- Evaluate solutions against actual constraints, not trends
-- Present trade-offs when multiple valid approaches exist
-- Don't change working code for style preference
+- README files
+- API documentation
+- package-level docs
+- configuration notes
+- usage examples
+- architecture or implementation notes
 
-### Type Safety
+Do not leave documentation stale after code changes.
 
-- No `any`, `@ts-ignore`, or unsafe casts without documented reason
-- Every function has an explicit return type
-- Shared types in `src/lib/types/`
+### Commit Every Discrete Update
 
-### Documentation Updates
+Use the `git-commit` skill after each discrete, self-contained update.
 
-- Modify README.md immediately when altering setup instructions, dependencies, or core features
-- Ensure documentation strictly reflects the newly written code; do not document planned features
-- Keep updates concise and relevant to the scope of the current commit
+A discrete update should include related code, tests, configuration, and documentation changes that belong together logically.
 
-## Code Quality
+### Validate Changes Before Commit
 
-- **KISS:** Simplest solution that works; no premature optimization
-- **DRY:** Extract common logic; no copy-paste
-- **YAGNI:** Don't build features before needed
-- **Immutability:** Use spread operators; avoid direct mutation
-- **Early returns:** Flatten nested conditionals
-- **Named constants:** No magic numbers
+The following scripts must all pass before you commit changes:
 
-## Project Conventions
-
-### Tailwind CSS 4
-
-- Use theme tokens from `./src/routes/layout.css`
-- No arbitrary color values for existing tokens
-- Mobile-first: base → `sm:` → `md:` → `lg:`
-
-### Validation
-
-- `pnpm lint` and `pnpm check` must pass before commit
-- No `console.log` or commented-out code in commits
+```bash
+pnpm format
+pnpm lint
+pnpm check
+pnpm build
+```
