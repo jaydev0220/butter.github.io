@@ -53,8 +53,8 @@
 		{#if courseImages.length > 0}
 			<div class="mt-16">
 				<div
-					class="relative left-1/2 h-[240px] w-screen -translate-x-1/2 overflow-hidden border-y
-						border-border bg-bg-surface shadow-sm sm:h-[300px] md:h-[360px] lg:h-[400px]"
+					class="relative left-1/2 h-60 w-screen -translate-x-1/2 overflow-hidden border-y
+						border-border bg-bg-surface shadow-sm sm:h-75 md:h-90 lg:h-100"
 				>
 					<div
 						class="flex h-full transition-transform duration-500 ease-out motion-reduce:transition-none"
@@ -62,11 +62,11 @@
 						aria-label="課程照片輪播"
 					>
 						{#each courseImages as image, index (image.src)}
-							<figure class="h-full min-w-full">
+							<figure class="flex h-full min-w-full justify-center">
 								<img
 									src={image.src}
 									alt={image.alt}
-									class="h-full w-full object-cover"
+									class="h-full w-auto max-w-none"
 									loading={index === 0 ? 'eager' : 'lazy'}
 									decoding="async"
 								/>
