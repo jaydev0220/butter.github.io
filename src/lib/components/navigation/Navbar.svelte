@@ -60,9 +60,7 @@
 				</a>
 			{/each}
 
-			<Button variant="primary" href="https://www.youtube.com/@Dump.Money.Earns.More.">
-				開始學習
-			</Button>
+			<Button variant="primary" href="/join">開始學習</Button>
 		</div>
 
 		<!-- Mobile Menu Button -->
@@ -94,9 +92,7 @@
 				</a>
 			{/each}
 			<div class="mt-4">
-				<Button variant="primary" href="https://www.youtube.com/@Dump.Money.Earns.More.">
-					開始學習
-				</Button>
+				<Button variant="primary" href="/join">開始學習</Button>
 			</div>
 		</div>
 	{/if}
