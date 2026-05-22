@@ -32,7 +32,7 @@
 	});
 </script>
 
-<section id="impact-stats" class="bg-bg-page py-20 md:py-28">
+<section id="impact-stats" class="overflow-x-clip bg-bg-page py-20 md:py-28">
 	<div class="mx-auto max-w-7xl px-6">
 		<!-- Section Header -->
 		<div class="mb-16 text-center">
