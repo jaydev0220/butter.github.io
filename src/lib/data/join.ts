@@ -9,7 +9,7 @@ export const joinSteps: JoinStep[] = [
 		description: '請使用指定邀請連結註冊新的 Bybit 帳戶，並確認註冊時綁定邀請碼。',
 		action: {
 			label: '開啟註冊連結',
-			href: '<affiliate_link>'
+			href: 'https://partner.bybit.com/b/8TER'
 		},
 		note: {
 			title: '注意事項',
@@ -48,7 +48,7 @@ export const joinSteps: JoinStep[] = [
 			'加入 Discord 後，到指定 UID 專區完成留言驗證。若填錯或留言錯 UID，請在 Discord UID 專區重新留言並註明。',
 		action: {
 			label: '加入 Discord',
-			href: '<discord_link>'
+			href: 'https://discord.gg/dumbmoney'
 		}
 	}
 ];
@@ -59,21 +59,21 @@ export const joinResources: JoinResource[] = [
 		title: '笨錢社群 LINE 群',
 		description: '用於接收社群通知與補充交流資訊。',
 		buttonLabel: '加入 LINE 群',
-		href: '<line_link>'
+		href: 'https://line.me/ti/g2/6JoThj6nR5WJraE-yYm5CVjZiuVZos-L7utDzg'
 	},
 	{
 		label: 'Course',
 		title: '實體課程報名',
 		description: '查看可報名的實體課程與相關活動。',
 		buttonLabel: '查看報名連結',
-		href: '<course_link>'
+		href: 'https://luma.com/dumbmoney'
 	},
 	{
 		label: 'Video',
 		title: '線上課程影片',
 		description: '課程影片皆為免費且公開，可先開始學習。',
 		buttonLabel: '觀看課程影片',
-		href: '<tut_video_link>'
+		href: 'https://youtu.be/dlJ5NZxDvbw'
 	}
 ];
 
@@ -84,7 +84,7 @@ export const joinFaqs: JoinFaq[] = [
 		answer: '可以，但請先確認原帳戶是否已綁定其他邀請人。若需要轉移身分，請參考身分轉移教學影片。',
 		action: {
 			label: '觀看身分轉移教學',
-			href: '<transfer_video_link>'
+			href: 'https://www.youtube.com/shorts/vr_uPuLYUv8'
 		}
 	},
 	{
