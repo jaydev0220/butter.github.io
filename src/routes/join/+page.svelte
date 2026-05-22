@@ -34,7 +34,7 @@
 	const progressPercent = $derived(Math.round((completedSteps / totalSteps) * 100));
 	const seoConfig = createSeoConfig(joinSeo, page.url);
 	const personSchema = createPersonSchema();
-	const websiteSchema = createWebsiteSchema(personSchema, page.url);
+	const websiteSchema = createWebsiteSchema(personSchema);
 	const joinPageSchema = createWebPageSchema(joinSeo, page.url, personSchema);
 
 	function syncStepLocks(): void {

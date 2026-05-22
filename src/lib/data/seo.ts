@@ -22,6 +22,7 @@ type SeoSchema = SchemaOrgProps['schema'];
 export const SITE_AUTHOR = 'Butter 巴特';
 export const SITE_LOCALE = 'zh_TW';
 export const SITE_NAME = 'Butter 巴特';
+export const SITE_URL = 'https://eddyb5201314-afk.github.io/';
 export const DEFAULT_OPEN_GRAPH_IMAGE_PATH = '/images/butter-sm.webp';
 
 export const homeSeo: PageSeo = {
@@ -39,14 +40,16 @@ export const joinSeo: PageSeo = {
 };
 
 export function createSeoConfig(pageSeo: PageSeo, url: URL): SeoConfig {
+	const pageUrl = createPageUrl(url);
+
 	return {
 		title: pageSeo.title,
-		url: url.toString(),
+		url: pageUrl,
 		description: pageSeo.description,
 		language: SITE_LOCALE,
 		author_name: SITE_AUTHOR,
 		site_name: SITE_NAME,
-		open_graph_image: createAbsoluteUrl(pageSeo.imagePath ?? DEFAULT_OPEN_GRAPH_IMAGE_PATH, url),
+		open_graph_image: createAbsoluteUrl(pageSeo.imagePath ?? DEFAULT_OPEN_GRAPH_IMAGE_PATH),
 		open_graph_image_alt: pageSeo.imageAlt ?? pageSeo.title,
 		twitter_card_type: pageSeo.twitterCardType ?? 'summary_large_image'
 	};
@@ -62,11 +65,11 @@ export function createPersonSchema(): PersonSchema {
 	};
 }
 
-export function createWebsiteSchema(personSchema: PersonSchema, url: URL): SeoSchema {
+export function createWebsiteSchema(personSchema: PersonSchema): SeoSchema {
 	return {
 		'@type': 'WebSite',
 		name: homeSeo.title,
-		url: createAbsoluteUrl('/', url),
+		url: createAbsoluteUrl('/'),
 		description: homeSeo.description,
 		publisher: personSchema,
 		inLanguage: SITE_LOCALE
@@ -88,13 +91,17 @@ export function createWebPageSchema(
 	return {
 		'@type': 'WebPage',
 		name: pageSeo.title,
-		url: url.toString(),
+		url: createPageUrl(url),
 		description: pageSeo.description,
 		inLanguage: SITE_LOCALE,
 		author: personSchema
 	};
 }
 
-function createAbsoluteUrl(path: string, url: URL): string {
-	return new URL(path, url.origin).toString();
+function createPageUrl(url: URL): string {
+	return createAbsoluteUrl(url.pathname);
+}
+
+function createAbsoluteUrl(path: string): string {
+	return new URL(path, SITE_URL).toString();
 }

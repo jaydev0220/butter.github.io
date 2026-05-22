@@ -27,7 +27,7 @@
 
 	const seoConfig = createSeoConfig(homeSeo, page.url);
 	const personSchema = createPersonSchema();
-	const websiteSchema = createWebsiteSchema(personSchema, page.url);
+	const websiteSchema = createWebsiteSchema(personSchema);
 	const profileSchema = createProfilePageSchema(personSchema);
 </script>
 
