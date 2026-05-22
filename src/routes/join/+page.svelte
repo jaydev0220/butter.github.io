@@ -76,32 +76,16 @@
 </script>
 
 <main
-	class="join-page min-h-screen bg-bg-page px-5 py-24 text-text-primary sm:px-6 lg:px-8"
+	class="min-h-screen bg-bg-page px-5 py-24 text-text-primary sm:px-6 lg:px-8"
 	data-route="/join"
 >
-	<div class="join-page-inner mx-auto max-w-6xl">
+	<div class="mx-auto max-w-6xl">
 		<JoinPageHeader {completedSteps} {totalSteps} {progressPercent} />
 
-		<section class="join-section mt-14" aria-labelledby="join-steps-heading">
-			<div
-				class="join-section-heading mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"
-			>
-				<div>
-					<h2 id="join-steps-heading" class="join-section-title font-display text-3xl font-bold">
-						加入流程
-					</h2>
-					<p class="join-section-copy mt-2 text-text-secondary">
-						請按照順序完成。後續步驟會在前一步勾選後解鎖。
-					</p>
-				</div>
-				<p
-					class="join-section-note rounded-full border border-border bg-bg-surface px-4 py-2 text-sm text-text-muted"
-				>
-					依序解鎖
-				</p>
-			</div>
+		<section class="mt-14" aria-labelledby="join-steps-heading">
+			<h2 id="join-steps-heading" class="mb-6 font-display text-3xl font-bold">加入流程</h2>
 
-			<div class="join-steps-list grid gap-4">
+			<div class="grid gap-4">
 				{#each steps as step, index (step.id)}
 					<JoinStepCard
 						{step}
@@ -116,37 +100,23 @@
 
 		<section
 			id="join-resources-section"
-			class="join-section join-resources mt-14 scroll-mt-24 rounded-3xl border border-border bg-bg-surface
+			class="mt-14 scroll-mt-24 rounded-3xl border border-border bg-bg-surface
 				p-5 shadow-sm sm:p-6 lg:p-8"
 			aria-labelledby="join-resources-heading"
 		>
-			<div class="join-section-heading mb-6">
-				<h2 id="join-resources-heading" class="join-section-title font-display text-3xl font-bold">
-					其他資源
-				</h2>
-				<p class="join-section-copy mt-2 text-text-secondary">
-					完成加入流程後，可繼續使用以下公開學習資源。
-				</p>
-			</div>
+			<h2 id="join-resources-heading" class="mb-6 font-display text-3xl font-bold">其他資源</h2>
 
-			<div class="join-resource-grid grid gap-4 lg:grid-cols-3">
+			<div class="grid gap-4 lg:grid-cols-3">
 				{#each joinResources as resource (resource.href)}
 					<JoinResourceCard {resource} />
 				{/each}
 			</div>
 		</section>
 
-		<section class="join-section join-faq mt-14" aria-labelledby="join-faq-heading">
-			<div class="join-section-heading mb-6">
-				<h2 id="join-faq-heading" class="join-section-title font-display text-3xl font-bold">
-					常見問題
-				</h2>
-				<p class="join-section-copy mt-2 text-text-secondary">
-					加入資格、UID 留言與 KYC / 入金狀態，是最常造成審核延遲的項目。
-				</p>
-			</div>
+		<section class="mt-14" aria-labelledby="join-faq-heading">
+			<h2 id="join-faq-heading" class="mb-6 font-display text-3xl font-bold">常見問題</h2>
 
-			<div class="join-faq-list grid gap-3">
+			<div class="grid gap-3">
 				{#each joinFaqs as faq (faq.id)}
 					<JoinFaqItem {faq} open={openFaqIds.includes(faq.id)} onToggle={toggleFaq} />
 				{/each}
