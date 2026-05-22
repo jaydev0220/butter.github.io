@@ -31,6 +31,7 @@
 		description,
 		language,
 		author_name: author,
+		open_graph_image: `${url}images/butter-sm.webp`,
 		twitter_card_type: 'summary'
 	};
 	const personSchema: SchemaOrgProps['schema'] = {
