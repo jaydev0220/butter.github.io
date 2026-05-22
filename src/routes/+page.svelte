@@ -9,8 +9,14 @@
 	import BeyondFinance from '$lib/components/sections/BeyondFinance.svelte';
 	import Music from '$lib/components/sections/Music.svelte';
 	import Footer from '$lib/components/sections/Footer.svelte';
-	import { socialLinks } from '$lib/data/navigation';
-	import { Head, SchemaOrg, type SeoConfig, type SchemaOrgProps } from 'svead';
+	import {
+		createPersonSchema,
+		createProfilePageSchema,
+		createSeoConfig,
+		createWebsiteSchema,
+		homeSeo
+	} from '$lib/data/seo';
+	import { Head, SchemaOrg } from 'svead';
 	import type { PageData } from './$types';
 
 	interface Props {
@@ -19,40 +25,10 @@
 
 	let { data }: Props = $props();
 
-	const title = 'Butter 巴特 — 金融交易講師 · 創作歌手';
-	const url = page.url.toString();
-	const author = 'Butter 巴特';
-	const description =
-		'你好，我是巴特（Butter）。我是一名金融交易講師與金融教育創作者，同時也是一位創作歌手。累積 20 萬+學生。持有 MCF、Topstep、FTMO 認證，曾與 Bybit、群益證券合作開講。專注市場結構與資金行為（Smart Money Concepts）研究與教學。';
-	const language = 'zh_TW';
-	const seoConfig: SeoConfig = {
-		title,
-		url,
-		description,
-		language,
-		author_name: author,
-		open_graph_image: `${url}images/butter-sm.webp`,
-		twitter_card_type: 'summary'
-	};
-	const personSchema: SchemaOrgProps['schema'] = {
-		'@type': 'Person',
-		name: author,
-		alternateName: ['Butter', '巴特'],
-		jobTitle: ['金融交易講師', '金融教育創作者', '創作歌手', '歌手', '創作者'],
-		sameAs: socialLinks.map(({ url }) => url)
-	};
-	const websiteSchema: SchemaOrgProps['schema'] = {
-		url,
-		description,
-		'@type': 'WebSite',
-		name: title,
-		publisher: personSchema,
-		inLanguage: language
-	};
-	const profileSchema: SchemaOrgProps['schema'] = {
-		'@type': 'ProfilePage',
-		mainEntity: personSchema
-	};
+	const seoConfig = createSeoConfig(homeSeo, page.url);
+	const personSchema = createPersonSchema();
+	const websiteSchema = createWebsiteSchema(personSchema, page.url);
+	const profileSchema = createProfilePageSchema(personSchema);
 </script>
 
 <Head seo_config={seoConfig} />

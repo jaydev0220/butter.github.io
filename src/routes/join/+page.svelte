@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import { tick } from 'svelte';
 	import JoinFaqItem from '$lib/components/join/JoinFaqItem.svelte';
 	import JoinPageHeader from '$lib/components/join/JoinPageHeader.svelte';
@@ -6,8 +7,16 @@
 	import JoinStepCard from '$lib/components/join/JoinStepCard.svelte';
 	import JoinToast from '$lib/components/join/JoinToast.svelte';
 	import { JOIN_INVITE_CODE, joinFaqs, joinResources, joinSteps } from '$lib/data/join';
+	import {
+		createPersonSchema,
+		createSeoConfig,
+		createWebPageSchema,
+		createWebsiteSchema,
+		joinSeo
+	} from '$lib/data/seo';
 	import type { JoinStepState } from '$lib/types';
 	import { scrollToSection } from '$lib/utils/scroll';
+	import { Head, SchemaOrg } from 'svead';
 
 	let steps = $state<JoinStepState[]>(
 		joinSteps.map((step, index) => ({
@@ -23,6 +32,10 @@
 	const totalSteps = $derived(steps.length);
 	const completedSteps = $derived(steps.filter((step) => step.completed).length);
 	const progressPercent = $derived(Math.round((completedSteps / totalSteps) * 100));
+	const seoConfig = createSeoConfig(joinSeo, page.url);
+	const personSchema = createPersonSchema();
+	const websiteSchema = createWebsiteSchema(personSchema, page.url);
+	const joinPageSchema = createWebPageSchema(joinSeo, page.url, personSchema);
 
 	function syncStepLocks(): void {
 		for (let index = 0; index < steps.length; index += 1) {
@@ -74,6 +87,10 @@
 		}
 	}
 </script>
+
+<Head seo_config={seoConfig} />
+<SchemaOrg schema={websiteSchema} />
+<SchemaOrg schema={joinPageSchema} />
 
 <main
 	class="min-h-screen bg-bg-page px-5 py-24 text-text-primary sm:px-6 lg:px-8"
