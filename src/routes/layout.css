@@ -48,8 +48,12 @@
 	--color-portrait-bg: #bec3cd;
 
 	/* Typography */
-	--font-display: 'Noto Serif TC', Georgia, serif;
-	--font-sans: 'Noto Sans TC', system-ui, sans-serif;
+	--font-display:
+		Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times,
+		Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+	--font-sans:
+		'Mona Sans VF', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial,
+		system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
 
 	/* Custom animations */
 	--animate-fade-in: fade-in 0.8s ease-out;
