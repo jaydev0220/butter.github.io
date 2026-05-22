@@ -17,6 +17,11 @@ interface PersonSchema {
 	sameAs: string[];
 }
 
+interface FAQ {
+	question: string;
+	answer: string;
+}
+
 type SeoSchema = SchemaOrgProps['schema'];
 
 export const SITE_AUTHOR = 'Butter 巴特';
@@ -95,6 +100,20 @@ export function createWebPageSchema(
 		description: pageSeo.description,
 		inLanguage: SITE_LOCALE,
 		author: personSchema
+	};
+}
+
+export function createFaqSchema(faqs: FAQ[]): SeoSchema {
+	return {
+		'@type': 'FAQPage',
+		mainEntity: faqs.map(({ question, answer }) => ({
+			'@type': 'Question',
+			name: question,
+			acceptedAnswer: {
+				'@type': 'Answer',
+				text: answer
+			}
+		}))
 	};
 }
 

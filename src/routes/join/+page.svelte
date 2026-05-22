@@ -8,6 +8,7 @@
 	import JoinToast from '$lib/components/join/JoinToast.svelte';
 	import { JOIN_INVITE_CODE, joinFaqs, joinResources, joinSteps } from '$lib/data/join';
 	import {
+		createFaqSchema,
 		createPersonSchema,
 		createSeoConfig,
 		createWebPageSchema,
@@ -36,6 +37,12 @@
 	const personSchema = createPersonSchema();
 	const websiteSchema = createWebsiteSchema(personSchema);
 	const joinPageSchema = createWebPageSchema(joinSeo, page.url, personSchema);
+	const faqSchema = createFaqSchema(
+		joinFaqs.map((faq) => ({
+			question: faq.question,
+			answer: faq.answer + (faq.action ? faq.action.label + ': ' + faq.action.href : '')
+		}))
+	);
 
 	function syncStepLocks(): void {
 		for (let index = 0; index < steps.length; index += 1) {
@@ -91,6 +98,7 @@
 <Head seo_config={seoConfig} />
 <SchemaOrg schema={websiteSchema} />
 <SchemaOrg schema={joinPageSchema} />
+<SchemaOrg schema={faqSchema} />
 
 <main
 	class="min-h-screen bg-bg-page px-5 py-24 text-text-primary sm:px-6 lg:px-8"
