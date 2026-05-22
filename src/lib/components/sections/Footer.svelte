@@ -25,13 +25,7 @@
 		<p class="mx-auto mb-8 max-w-2xl text-gold-light">
 			加入超過 20 萬名學員的行列，一起學習系統化的金融交易知識。
 		</p>
-		<Button
-			variant="primary"
-			href="https://www.youtube.com/@Dump.Money.Earns.More."
-			class="bg-gold hover:bg-gold"
-		>
-			開始學習
-		</Button>
+		<Button variant="primary" href="/join" class="bg-gold hover:bg-gold">開始學習</Button>
 	</div>
 </section>
 
