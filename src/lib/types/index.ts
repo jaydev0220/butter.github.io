@@ -59,3 +59,42 @@ export interface Contact {
 	imageUrl: string;
 	iconUrl: string;
 }
+
+export interface JoinAction {
+	label: string;
+	href: string;
+}
+
+export interface JoinStepNote {
+	title: string;
+	items: string[];
+	ordered?: boolean;
+}
+
+export interface JoinStep {
+	id: string;
+	title: string;
+	description: string;
+	action?: JoinAction;
+	note?: JoinStepNote;
+}
+
+export interface JoinStepState extends JoinStep {
+	completed: boolean;
+	enabled: boolean;
+}
+
+export interface JoinResource {
+	label: string;
+	title: string;
+	description: string;
+	buttonLabel: string;
+	href: string;
+}
+
+export interface JoinFaq {
+	id: string;
+	question: string;
+	answer: string;
+	action?: JoinAction;
+}
