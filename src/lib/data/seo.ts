@@ -26,16 +26,16 @@ export const SITE_URL = 'https://eddyb5201314-afk.github.io/';
 export const DEFAULT_OPEN_GRAPH_IMAGE_PATH = '/images/butter-sm.webp';
 
 export const homeSeo: PageSeo = {
-	title: 'Butter 巴特 — 金融交易講師 · 創作歌手',
+	title: 'Butter 巴特 | 金融交易講師 · 創作歌手',
 	description:
 		'你好，我是巴特（Butter）。我是一名金融交易講師與金融教育創作者，同時也是一位創作歌手。累積 20 萬+學生。持有 MCF、Topstep、FTMO 認證，曾與 Bybit、群益證券合作開講。專注市場結構與資金行為（Smart Money Concepts）研究與教學。',
 	twitterCardType: 'summary'
 };
 
 export const joinSeo: PageSeo = {
-	title: '加入 Butter 巴特學員社群 — Bybit 註冊與 Discord 加入流程',
+	title: '成為學員 | Butter 巴特',
 	description:
-		'依照指定邀請連結完成 Bybit 註冊、KYC、入金與 UID 留言，解鎖 Butter 巴特學員 Discord 社群交流與課程資源。',
+		'加入笨錢社群，馬上開始學習。完成 Bybit 註冊、KYC、入金與 UID 驗證，即可使用 Discord 社群、免費課程影片與相關學習資源。',
 	twitterCardType: 'summary'
 };
 
